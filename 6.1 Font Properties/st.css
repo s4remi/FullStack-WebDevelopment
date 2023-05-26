@@ -1,0 +1,20 @@
+body {
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 18px;
+}
+#coral {
+  color: coral;
+}
+#tX {
+  font-size: 2rem;
+}
+#n00 {
+  font-weight: 900;
+}
+#fami {
+  font-family: "Caveat", cursive;
+}
+#ali {
+  text-align: right;
+}
