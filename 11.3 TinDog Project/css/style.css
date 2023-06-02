@@ -44,4 +44,41 @@
 }
 .div4 {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  color: gray;
+}
+.bi {
+  color: black;
+}
+.dog {
+  justify-content: space-around;
+  border-radius: 50%;
+}
+.container {
+  display: inline-block;
+  align-items: center;
+  background-color: gainsboro;
+  width: 100%;
+  padding: 0;
+}
+.container img {
+  border-radius: 50%;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  height: 100px;
+}
+.img-containers {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+}
+.img-containers img {
+  width: 50%;
+  justify-items: center;
 }
