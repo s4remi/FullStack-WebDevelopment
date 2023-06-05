@@ -15,74 +15,20 @@
     background-position: 0% 50%;
   }
 }
+/** my code**/
 
+/*  <!-- Features -->*/
 .icon-square {
   width: 3rem;
   height: 3rem;
   border-radius: 0.75rem;
 }
+/*<!-- Testimonial -->*/
 
-.profile-img {
+.ali {
+  height: 100px;
   border-radius: 50%;
 }
-/** my code**/
-.dog-iphone {
-  margin-top: 0px;
-  padding-right: 0px;
-  padding-left: 0px;
-  padding-left: 0;
-  padding-right: 0;
-}
-#testimonial {
-  display: flex;
-  flex-direction: column;
-  background-color: gainsboro;
-  justify-content: center;
-  align-items: center;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5rem;
-}
 
-.container img {
-  padding-top: 0;
-  padding-bottom: 0;
-  width: 100vw;
-  height: 100vh;
-}
-.comp img {
-  display: flex;
-  width: 20%;
-  height: 30px;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 20px;
-  margin-top: 0;
-}
-
-/*
-first try css:
-div1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-.div2 {
-  display: flex;
-  flex-direction: column;
-  float: left;
-}
-.div3 {
-  display: inline-block;
-  padding-top: 5rem;
-}
-.div4 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-*/
+/*<!-- Pricing -->*/
+/*<!-- Footer -->*/
