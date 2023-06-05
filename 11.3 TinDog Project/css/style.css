@@ -26,7 +26,46 @@
   border-radius: 50%;
 }
 /** my code**/
-.div1 {
+.dog-iphone {
+  margin-top: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-left: 0;
+  padding-right: 0;
+}
+#testimonial {
+  display: flex;
+  flex-direction: column;
+  background-color: gainsboro;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.container img {
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.comp img {
+  display: flex;
+  width: 20%;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  margin-top: 0;
+}
+
+/*
+first try css:
+div1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -46,32 +85,4 @@
   flex-direction: row;
   align-items: flex-start;
 }
-.feature-icon {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 0.75rem;
-  color: gray;
-}
-.bi {
-  color: black;
-}
-.dog {
-  justify-content: space-around;
-  border-radius: 50%;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  background-color: gainsboro;
-}
-
-.container img {
-  border-radius: 50%;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
-}
-.img-containers {
-  display: flex;
-  flex-direction: row;
-  height: 30px;
-}
+*/
