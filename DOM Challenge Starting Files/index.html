@@ -9,6 +9,24 @@
   <body>
 
     <h1>Hello</h1>
+    <h2>there are 3 ways to implement JS to out htmls</h2>
+    <p>like CSS;
+      <li>inline</li>
+      <p>by adding an attribute into the HTML tag. for instance: </br>
+        "in the body section we use--> onload="alert('hello')"<-- <br>
+        notice that we should use single cotationmark for alert function.
+      </p>
+      <li>internal</li>
+      <p> using parantecis instead of bracket in order to make it visible. <br>
+        by using script tag, (script type="text/javascript")<br>
+        alert("hello") <br>
+        (/script). notice it is in the body section.
+      </p>
+      <li>external</li>
+      <p>it will be a link to the js file. <br>
+        (script src="" charset="utf-8")(/script)
+      </p>
+    </p>
 
     <input type="checkbox">
 
@@ -21,7 +39,11 @@
       <li class="list">Second</li>
       <li class="list">Third</li>
     </ul>
-
   </body>
+  <footer>
+    <p>with using document.firstElementChild.lastElementChild.getElementsByClassName("list")[2].innerHTML="Ali"; i can change Third to ALi</p>
+    <p>with using document.firstElementChild.lastElementChild.getElementsByClassName("list")[2].style.color="blue"; I can change the Ali's color to blue</p>
+    <script src="./index.js"></script>
+  </footer>
 
 </html>
