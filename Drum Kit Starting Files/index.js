@@ -17,7 +17,9 @@ buttons.forEach((button) => {
 });
 
 function handleClick() {
-  alert("i got clicked!");
+  alert("i got d!");
+  var audio = new Audio("./sounds/tom-2.mp3");
+  audio.play();
 }
 // FOR SELECTING ALL BUTTONS V2
 /*
