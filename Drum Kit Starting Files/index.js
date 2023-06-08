@@ -109,8 +109,11 @@ document.addEventListener("keydown", function (e) {
 
 for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+    var classList = this.className;
+    console.log(classList);
     var key = this.innerHTML;
     makesound(key);
+    animate(classList);
   });
 }
 
@@ -118,6 +121,7 @@ document.addEventListener("keydown", function (e) {
   console.log("this key was clicked! " + e.key);
   var key = e.key;
   makesound(key);
+  animate(key);
 });
 
 function makesound(key) {
@@ -152,3 +156,17 @@ function makesound(key) {
       break;
   }
 }
+
+// adding animation to the buttons
+function animate(key) {
+  var act = key.split(" ");
+  var bb = act[0];
+  console.log("the key value is: " + bb);
+  // how to assign the class we wanted to variable
+  var e = document.querySelector("." + bb);
+  e.classList.add("pressed");
+  setTimeout(() => {
+    e.classList.remove("pressed");
+  }, 100);
+}
+s;
