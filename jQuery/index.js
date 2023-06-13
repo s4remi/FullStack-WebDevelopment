@@ -69,7 +69,35 @@ $(document).keydown(function (event) {
 });
 
 // using "on" function for mouseover
-
 $("h1").on("mouseover", function () {
   $("h1").css("color", "white");
+});
+//adding and removing elements with jquery
+$("h1").before("<button>Ali<button>");
+$("h1").after("<button>Ali<button>");
+$("h1").prepend("<button>Ali<button>");
+$("h1").append("<button>Ali<button>");
+$("a").remove();
+
+//using jquery to add animate
+$("button").on("click", function () {
+  $("h1").slideUp();
+  //combination
+  $("h1").slideDown().animate({
+    opacity: 0.5,
+  });
+});
+const newspaperSpinning = [
+  { transform: "rotate(0) scale(1)" },
+  { transform: "rotate(360deg) scale(0)" },
+];
+
+const newspaperTiming = {
+  duration: 2000,
+  iterations: 1,
+};
+
+const newspaper = document.querySelector(".newspaper");
+newspaper.addEventListener("click", () => {
+  newspaper.animate(newspaperSpinning, newspaperTiming);
 });
