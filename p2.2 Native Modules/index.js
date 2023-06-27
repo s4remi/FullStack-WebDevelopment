@@ -12,3 +12,15 @@ ali.writeFile("mynewfile3.txt", "Hello content!", function (err) {
   console.log("Saved!");
 });
 console.log("we are here!");
+ali.readFile("test.txt", (err, data) => {
+  if (err) {
+    throw err;
+  }
+  let str = data.toString();
+  console.log(
+    "everything that is inside the file is\t\n",
+    str,
+    "\n the original data is:\n ",
+    data
+  );
+});
