@@ -70,12 +70,12 @@ function checkAnswer(currentLevel) {
     $("body").addClass("game-over");
     console.log("Wrong!");
     playSound("wrong");
-    $("#level-title").text("Game over, Press Any key to Restart");
+    //$("#level-title").text("Game over, Press Any key to Restart");
     setTimeout(() => {
       $("body").removeClass("game-over");
     }, 200);
     startOver();
-  }
+  } 
 }
 
 //--
@@ -84,5 +84,5 @@ function startOver() {
   level = 0;
   userClickedPattern = [];
   gamePattern = [];
-  $("#level-title").text("Press Any key to Restart");
+  $("#level-title").text("Game over, Press Any key to Restart");
 }
