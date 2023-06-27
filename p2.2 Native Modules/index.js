@@ -2,6 +2,7 @@ console.log('"hello node.js file!"');
 const { isUtf8 } = require("buffer");
 const { error } = require("console");
 const ali = require("fs");
+const { allowedNodeEnvironmentFlags } = require("process");
 ali.writeFile("test.txt", "salam azizam", (err) => {
   if (err) throw err;
   console.log("file created successfully");
@@ -17,10 +18,12 @@ ali.readFile("test.txt", (err, data) => {
     throw err;
   }
   let str = data.toString();
-  console.log(
-    "everything that is inside the file is\t\n",
-    str,
-    "\n the original data is:\n ",
-    data
-  );
+  console.log("test.txt\t\n", str, "\n the original data is:\n ", data);
+});
+console.log("part2 reading file:");
+
+//-----
+ali.readFile("message.txt", "utf8", (err, mata) => {
+  if (err) throw err;
+  console.log(`message.txt: ${mata}`);
 });
