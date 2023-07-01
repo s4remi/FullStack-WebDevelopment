@@ -1,0 +1,16 @@
+{
+  "name": "qr-scan",
+  "version": "1.0.0",
+  "description": "scaning qr images",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ali S",
+  "license": "ISC",
+  "dependencies": {
+    "inquire": "^0.4.8",
+    "qr-image": "^3.2.0"
+  }
+}
