@@ -26,6 +26,13 @@ inquirer
     // using the second package for creating the url to image
     var qr_svg = qr.image(url, { type: "png" });
     qr_svg.pipe(fs.createWriteStream("qr-image.png"));
+
+    //save the url in the URL.txt file
+
+    fs.writeFile("URL.txt", url, (err) => {
+      if (err) throw err;
+      console.log("The file has been saved!");
+    });
   })
   .catch((error) => {
     if (error.isTtyError) {
