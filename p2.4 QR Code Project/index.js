@@ -12,11 +12,14 @@ import fs from "node:fs";
 
 inquirer
   .prompt([
-    /* Pass your questions in here */
-    message:"what is your name?"
+    /* Pass your questions in here with using the message property */
+    { message: "Type in your URL: ", name: "URL" },
   ])
   .then((answers) => {
     // Use user feedback for... whatever!!
+    //console.log(answers);
+    const url = answers["URL"];
+    console.log(`Your URL is: ${url}`);
   })
   .catch((error) => {
     if (error.isTtyError) {
