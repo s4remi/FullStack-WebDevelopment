@@ -18,8 +18,14 @@ inquirer
   .then((answers) => {
     // Use user feedback for... whatever!!
     //console.log(answers);
-    const url = answers["URL"];
+    const url = answers.URL;
+    //or
+    //const url = answers["URL"];
     console.log(`Your URL is: ${url}`);
+
+    // using the second package for creating the url to image
+    var qr_svg = qr.image(url, { type: "png" });
+    qr_svg.pipe(fs.createWriteStream("qr-image.png"));
   })
   .catch((error) => {
     if (error.isTtyError) {
