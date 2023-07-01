@@ -16,3 +16,9 @@ console.log(`the new silly name is ${sillyName}`);
 var newName = generateName();
 // prints out another randomly generated name each time you run this
 console.log(`newest name is ${newName}`);
+
+//adding other package name superheroes
+
+import superheroes from "superheroes";
+var test = superheroes.random();
+console.log(`I am ${test}`);
