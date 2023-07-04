@@ -13,5 +13,13 @@ app.get("/", function (req, res) {
   res.send("welcome to the <em><span>M<span><em>ain page!");
 });
 app.get("/cal", function (req, res) {
-  res.send("building an app soon!");
+  res.sendFile(
+    "/Users/nobody1/Desktop/WebDev/code exercises/Calculator/index.html"
+  );
+  /** send the index.html file for the response,
+   * but as we are going to upload our website on cloud we should
+   * use the entire path by using  so it is easier to use __dirname" or "__filename"
+   */
+  console.log(__dirname);
+  //res.sendFile(__dirname + "/index.html");
 });
