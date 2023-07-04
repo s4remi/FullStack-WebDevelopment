@@ -8,10 +8,21 @@ const app = express();
 // the first parameter is the location that we represent it by "/"
 // the second parameter is the callback function
 app.get("/", function (request, response) {
-  response.send("<h1>Hi</br>; Ali!<h1>");
+  response.send("<h1>Hi<em><span> Ali!<span><em><h1>");
   //console.log(request);
 });
-
+//adding other page for our local server
+app.get("/contact", function (request, response) {
+  response.send("contact me: 4li@mail.com");
+});
+app.get("/about", function (req, res) {
+  res.send(
+    "<p>in this paragraph we are going to learn more about the author<p>"
+  );
+});
+app.get("/hobbies", function (req, res) {
+  res.send("<ul><li>cycle</li><li>swim</li></ul>");
+});
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
