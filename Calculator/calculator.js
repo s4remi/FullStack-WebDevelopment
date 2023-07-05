@@ -48,6 +48,17 @@ app.post("/", function (req, res) {
 
 //-------  BMI Routing Challenge --------
 
-app.get("/bmicalculator", (req, res) => {
+app.get("/bmiCalculator", (req, res) => {
   res.sendFile(__dirname + "/bmiCalculator.html");
+});
+app.post("/bmiCalculator", function (req, res) {
+  var height = parseFloat(req.body.height);
+  var weight = parseFloat(req.body.weight);
+  let result = (weight / (height * height)).toFixed(2) * 703;
+  if (result >= 18.5 && result <= 24.9) {
+    res.send(`Your bmi category is Normal and it is ${result}`);
+  }
+  if (result > 25) {
+    res.send(`Your bmi category is obis and it is ${result}`);
+  }
 });
