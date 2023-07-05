@@ -54,11 +54,16 @@ app.get("/bmiCalculator", (req, res) => {
 app.post("/bmiCalculator", function (req, res) {
   var height = parseFloat(req.body.height);
   var weight = parseFloat(req.body.weight);
-  let result = (weight / (height * height)).toFixed(2) * 703;
+  let result = (weight / (height * height)).toFixed(2);
+
   if (result >= 18.5 && result <= 24.9) {
     res.send(`Your bmi category is Normal and it is ${result}`);
   }
   if (result > 25) {
     res.send(`Your bmi category is obis and it is ${result}`);
+  } else {
+    res.send(
+      `You need more exercise! Your current bmi category is underweight`
+    );
   }
 });
