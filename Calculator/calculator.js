@@ -10,7 +10,7 @@ BUT, Body parser comes baked in to express,
  o just add the following line of code before your routes:
 app.use(express.urlencoded({ extended: true }));
 */
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 //add 3000 port to listen
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
@@ -38,5 +38,10 @@ app.get("/cal", function (req, res) {
 // adding post method in order to  deal with info that received from user input.
 //It should be added to the main page instead of just the /cal
 app.post("/", function (req, res) {
-  res.send("Thanks for sending info!");
+  console.log(req.body);
+  var num = Number(req.body.num1);
+  console.log(num);
+  var otherNum = Number(req.body.num2);
+  var total = num + otherNum;
+  res.send(`the total is ${total}`);
 });
