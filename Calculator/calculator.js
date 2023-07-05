@@ -45,3 +45,9 @@ app.post("/", function (req, res) {
   var total = num + otherNum;
   res.send(`the total is ${total}`);
 });
+
+//-------  BMI Routing Challenge --------
+
+app.get("/bmicalculator", (req, res) => {
+  res.sendFile(__dirname + "/bmiCalculator.html");
+});
