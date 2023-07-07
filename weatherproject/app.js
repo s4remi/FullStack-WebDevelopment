@@ -9,13 +9,13 @@ const https = require("https");
 //const url ="https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw&type=single";
 
 const url =
-  "https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=9b8c7b10dac45094197806527e8bc9c5&units=metric";
+  "https://api.openweathermap.org/data/2.5/weather?q=London&appid=9b8c7b10dac45094197806527e8bc9c5&units=metric";
 
 // add get method
 app.get("/", function (req, res) {
   // using https to get response from other api
   https
-    .get(url, (response) => {
+    .get(url, function (response) {
       console.log(response);
       console.log("\n------------\n");
       console.log(`response.statusCode: ${response.statusCode}`);
@@ -25,21 +25,72 @@ app.get("/", function (req, res) {
       //using the "on" method to searching for the data
       response.on("data", function (d) {
         console.log("\n****  `data: ${d}` ***\n");
-        console.log(`data: ${d}`);
+        console.log(d); //`data:\t${d}`
         console.log(
           "\n****   process.stdout.write(d); this is the equivalent of console.log(d) ***\n"
         );
         process.stdout.write(d);
-        console.log("\n**** JSON.parse(d) ****\n");
-        // make it readable for us
+        console.log("\n **** JSON.parse(d) ****\n");
+        // make it readable for us by converting it to JSON version
         const weatherData = JSON.parse(d);
         console.log(weatherData);
+
+        //how to use data and reach to them
+        const temp = weatherData.main.temp;
+        console.log(`the temp is:\t${temp}`);
+        //weather[0].description
+        const desc = weatherData.weather[0].description;
+        console.log(`the weather description is\t${desc}`);
+        const country = weatherData.sys.country;
+        const city = weatherData.name;
+        const icon =
+          "https://openweathermap.org/img/wn/" +
+          weatherData.weather[0].icon +
+          "@2x.png";
+        console.log(icon);
+
+        // but better practice is use write method instead of send
+        res.write(
+          "<h1>the temperature in the London is\t " +
+            temp +
+            " degrees Celsius.</h1>"
+        );
+        res.write("The city name is " + city + ".</br>");
+        res.write("The weather condition is :" + desc);
+        res.write("<img src=" + icon + "></img>");
+
+        res.send();
+
+        //we can use add and continue
+        // res.send(
+        //   "<h1>the temperature in the London is " +
+        //     temp +
+        //     " degrees Celsius.</h1>" +
+        //     "<h2>the weather is currently " +
+        //     desc +
+        //     ". </h2>"
+        // ); // send response to client
+
+        /**
+         * let say we have an object and want to see it as string instead of JSON version by using JSON.stringify
+         */
+        const object = {
+          name: "test",
+          author: "Ali",
+          age: 30,
+          hometown: "sky",
+          favoriteFood: "pizza",
+        };
+        console.log("+++++++++++++ test +++++++++++++");
+        console.log(object);
+        console.log("========= compare ========");
+        console.log(`${JSON.stringify(object)}`);
       });
     })
     .on("error", (e) => {
       console.log(`e:\t${e}`);
     });
-  res.send("<h1>Hello World!</h1>"); // send response to client when
+  //res.send("<h1>Hello world! </h1>" + temp); // send response to client when
 });
 
 //listening port
