@@ -3,16 +3,31 @@ const { response } = require("express");
 const express = require("express");
 const app = express();
 const port = 3000;
+app.use(express.urlencoded({ extended: true }));
 
 //make HTTP requests in Node.js as request module is deprecated
 const https = require("https");
 //const url ="https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw&type=single";
 
-const url =
-  "https://api.openweathermap.org/data/2.5/weather?q=London&appid=9b8c7b10dac45094197806527e8bc9c5&units=metric";
-
 // add get method
 app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/", function (req, res) {
+  const city = req.body.cityName;
+  const appid = "9b8c7b10dac45094197806527e8bc9c5";
+  const unit = "metric";
+  const url =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&appid=" +
+    appid +
+    "&units=" +
+    unit;
+  console.log("post received!");
+  console.log(req.body);
+  console.log(req.body.cityName + "\n****");
   // using https to get response from other api
   https
     .get(url, function (response) {
@@ -51,12 +66,15 @@ app.get("/", function (req, res) {
 
         // but better practice is use write method instead of send
         res.write(
-          "<h1>the temperature in the London is\t " +
+          "<h1>the temperature in the " +
+            city +
+            " is\t " +
             temp +
             " degrees Celsius.</h1>"
         );
         res.write("The city name is " + city + ".</br>");
         res.write("The weather condition is :" + desc);
+        //importing the image
         res.write("<img src=" + icon + "></img>");
 
         res.send();
@@ -74,6 +92,7 @@ app.get("/", function (req, res) {
         /**
          * let say we have an object and want to see it as string instead of JSON version by using JSON.stringify
          */
+
         const object = {
           name: "test",
           author: "Ali",
