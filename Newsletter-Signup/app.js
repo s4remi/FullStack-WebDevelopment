@@ -3,9 +3,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 app.use(express.urlencoded({ extended: true }));
+//make the server not static
+app.use(express.static("./public")); //serve public folder as it's own
 
 app.get("/", function (req, res) {
-  res.send("<h1>Hello World!</h1>");
+  res.sendFile(__dirname + "/signup.html");
 });
 
 app.listen(port, function (req, res) {
