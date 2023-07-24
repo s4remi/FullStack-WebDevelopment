@@ -17,8 +17,19 @@ app.post("/", function (req, res) {
   const e = req.body.email;
   //console.log(req.body);
   console.log(`name: ${f}\t last name: ${l}\t email address: ${e}`);
+  if (!f || !l || !e) {
+    return res.status(422).json({ error: "Please fill all fields" });
+  } else {
+    let message = `Thank you for signing up with us!\n\nYour details:\nName
+      ${f} ${l}\nEmail Address:${e}`;
+    // sendMail(message).then(() =>
+    // res
+    // .redirect("/success")
+    // )
+    // ;
+  }
 });
-
-app.listen(port, function (req, res) {
-  console.log(`The server is running on port ${port}`);
-});
+if (!f)
+  app.listen(port, function (req, res) {
+    console.log(`The server is running on port ${port}`);
+  });
