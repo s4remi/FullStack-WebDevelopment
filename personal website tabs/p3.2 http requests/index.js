@@ -2,12 +2,22 @@ console.log("Hi There!");
 import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import morgan from "morgan";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan("tiny"));
 const port = 3000;
+
+//create a custom middleware
+function myMiddleware(req, res, next) {
+  console.log(`Request Method: ${req.method}`);
+  console.log(`Request URL: ${req.url}`);
+  next();
+}
+app.use(myMiddleware);
 
 app.get("/", function (req, res) {
   //res.write("<h1>Hello World!</h1>");
