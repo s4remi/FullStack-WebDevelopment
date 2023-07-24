@@ -15,6 +15,10 @@ app.get("/", function (req, res) {
   //res.send();
   res.sendFile(__dirname + "/index.html");
 });
+app.post("/", function (req) {
+  const name = req.body.city;
+  console.log(name);
+});
 
 app.get("/about", function (req, res) {
   res.send("this is the about page in the website");
