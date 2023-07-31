@@ -13,8 +13,9 @@ const port = 3000;
 
 //create a custom middleware
 function myMiddleware(req, res, next) {
-  console.log(`Request Method: ${req.method}`);
-  console.log(`Request URL: ${req.url}`);
+  console.log(`Request Method: num1 ${req.method}`);
+  console.log(`Request URL: num2 ${req.url}`);
+  console.log("second Request Method: num3 ", req.method);
   next();
 }
 app.use(myMiddleware);
