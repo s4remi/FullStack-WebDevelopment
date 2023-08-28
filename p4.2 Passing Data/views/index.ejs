@@ -7,7 +7,11 @@
   </head>
 
   <body>
-    <h1>Enter your name</h1>
+    <% if ( !locals.co) { %>
+     <h1>Enter your name down below here!</h1>
+    <% }else { %>
+    <h1><em><strong>the<strong> count for the word you type is<em> <%= co %></h1>
+      <%} %>
     <!-- Write your code here -->
     <form action="/submit" method="POST">
       <input type="text" name="fName" placeholder="First name" />

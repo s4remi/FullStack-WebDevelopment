@@ -7,9 +7,7 @@ const port = 3;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  let first = "name";
-  let last = "last";
-  res.render("index.ejs", { fn: first, ln: last });
+  res.render("index.ejs");
 });
 
 app.post("/submit", (req, res) => {
@@ -18,9 +16,10 @@ app.post("/submit", (req, res) => {
   console.log(`the first name is ${name} and the last name is ${surname}`);
   let count = name.length + surname.length;
   console.log(`the count is ${count}`);
-  res.send(
-    `<h1><em><strong>the<strong> count for the word you type is<em> ${count}`
-  );
+  // res.write(
+  //   `<h1><em><strong>the<strong> count for the word you type is<em> ${count}`
+  // );
+  res.render("index.ejs", { firstN: name, lastN: surname, co: count });
 });
 
 app.listen(port, () => {
